@@ -29,10 +29,10 @@
 					"raw": "https://<JAMA URL>/rest/v1/users/current/",
 					"protocol": "https",
 					"host": [
-						"jama",
-						"ribridges",
-						"ri",
-						"gov"
+						"<URLHOST>",
+						"<URLHOST>",
+						"<URLHOST>",
+						"<URLHOST>"
 					],
 					"path": [
 						"contour",
@@ -122,10 +122,10 @@
 					"raw": "https://<JAMA URL>rest/v1/testruns/{{Testrun_id}}?projectid={{project_api_id}}",
 					"protocol": "https",
 					"host": [
-						"jama",
-						"ribridges",
-						"ri",
-						"gov"
+						"<URLHOST>",
+						"<URLHOST>",
+						"<URLHOST>",
+						"<URLHOST>"
 					],
 					"path": [
 						"contour",
@@ -181,10 +181,10 @@
 					"raw": "https://<JAMA URL>/rest/v1/testruns/{{Testrun_id}}",
 					"protocol": "https",
 					"host": [
-						"jama",
-						"ribridges",
-						"ri",
-						"gov"
+						"<URLHOST>",
+						"<URLHOST>",
+						"<URLHOST>",
+						"<URLHOST>"
 					],
 					"path": [
 						"contour",
