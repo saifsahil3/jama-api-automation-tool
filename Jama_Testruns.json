@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "391c8b6a-a411-44cd-b22a-8526cfe8cfb4",
+		"name": "Jama Testruns",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get user ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab0141ab-8e28-4789-9743-855d2278a3a8",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.globals.set(\"UserId\", jsonData.data.id);",
+							"console.log(\"current user id\"+pm.globals.get(\"UserId\"));",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://<JAMA URL>/rest/v1/users/current/",
+					"protocol": "https",
+					"host": [
+						"jama",
+						"ribridges",
+						"ri",
+						"gov"
+					],
+					"path": [
+						"contour",
+						"rest",
+						"v1",
+						"users",
+						"current",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get testrun info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7dd4d2ed-4468-47a5-9f5e-06ba2711969d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"",
+							"//get test run status environment variable",
+							"var tcstatus=data.Test_run_status;",
+							"",
+							"//get test run status environment variable",
+							"var Actres=data.Actual_Result;",
+							"",
+							"//Steps counter initialization",
+							"var steps = 0;",
+							"steps = jsonData.data.fields.testRunSteps.length;",
+							"console.log(\"No of steps\"+steps);",
+							"var testrunsteps=\"{\\\"status\\\": \\\"\"+tcstatus+\"\\\"}\";",
+							"var step = \"{\\\"status\\\": \\\"\"+tcstatus+\"\\\"}\";",
+							"",
+							"//Creating test steps JSON body",
+							"//function createbody(){",
+							"while(steps > 1){",
+							"  testrunsteps = testrunsteps + \",\"+step;  ",
+							"  steps = steps-1;  ",
+							"}",
+							"//}",
+							"console.log(\"Final\"+ testrunsteps);",
+							"",
+							"",
+							"//Creating put body and set as global JSON body",
+							"var PutBody = \"{\\\"fields\\\": {\\\"testRunSteps\\\": [\" + testrunsteps+",
+							"              \"],\\\"actualResults\\\":\\\"<p> \"+ Actres + \"</p> \\\\n\\\",\\\"assignedTo\\\":\" + pm.globals.get(\"UserId\") +\",\\\"project\\\": \"+pm.environment.get(\"project_api_id\")+",
+							"\",\\\"forcePassed\\\": false }}\";",
+							"pm.globals.set(\"Put_body\", PutBody);",
+							"console.log(pm.globals.get(\"Put_body\"));",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "dd976274-6aef-470c-8c1a-5d3221e83b48",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://<JAMA URL>rest/v1/testruns/{{Testrun_id}}?projectid={{project_api_id}}",
+					"protocol": "https",
+					"host": [
+						"jama",
+						"ribridges",
+						"ri",
+						"gov"
+					],
+					"path": [
+						"contour",
+						"rest",
+						"v1",
+						"testruns",
+						"{{Testrun_id}}"
+					],
+					"query": [
+						{
+							"key": "projectid",
+							"value": "{{project_api_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "afe81b57-8976-4e5b-85fd-cabe09985c2a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{{Put_body}}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://<JAMA URL>/rest/v1/testruns/{{Testrun_id}}",
+					"protocol": "https",
+					"host": [
+						"jama",
+						"ribridges",
+						"ri",
+						"gov"
+					],
+					"path": [
+						"contour",
+						"rest",
+						"v1",
+						"testruns",
+						"{{Testrun_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{Password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{Username}}",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}

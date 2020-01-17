@@ -1,0 +1,59 @@
+{
+	"id": "cd5b99a4-b708-41b8-beb5-ce20c6248d29",
+	"name": "Trail",
+	"values": [
+		{
+			"key": "attachmentIDname",
+			"value": "RIB-98487_TC1",
+			"enabled": true
+		},
+		{
+			"key": "attachment_id",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "testcaseid",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Username",
+			"value": "EnterYourUsername",
+			"enabled": true
+		},
+		{
+			"key": "Password",
+			"value": "EnterYourPassword",
+			"enabled": true
+		},
+		{
+			"key": "folderpath",
+			"value": "C:/User/<FolderPath>",
+			"enabled": true
+		},
+		{
+			"key": "project_api_id",
+			"value": "15",
+			"enabled": true
+		},
+		{
+			"key": "Testrun_id",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Test_run_status",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Actual_Result",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2019-10-29T14:22:00.681Z",
+	"_postman_exported_using": "Postman/7.3.6"
+}
