@@ -2,7 +2,7 @@
 Set of Jama API tools for doing various operations of JAMA. Created using newman/postman
 Download all the attachments and create a folder structure as displayed in Images
 
-To Upload screenshots to JAMA
+To Upload screenshots to JAMA 
 
 Prerequisite:
 1. Your attachment name should be same as test case name in JAMA
