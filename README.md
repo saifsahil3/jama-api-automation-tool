@@ -1,5 +1,5 @@
 # jama-apitool
-Set of Jama API tools for doing various operations of JAMA. Created using newman/postman
+Set of Jama API tools for doing various operations of JAMA. Created using newman/postman library of NodeJS
 Download all the attachments and create a folder structure as displayed in Images
 
 To Upload screenshots to JAMA 
